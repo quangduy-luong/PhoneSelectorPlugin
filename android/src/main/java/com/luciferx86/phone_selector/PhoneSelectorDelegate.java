@@ -53,7 +53,7 @@ public class PhoneSelectorDelegate implements PluginRegistry.ActivityResultListe
 
         if (requestCode == CREDENTIAL_PICKER_REQUEST && resultCode == Activity.RESULT_OK) {
             Credential credentials = data.getParcelableExtra(Credential.EXTRA_KEY);
-            finishWithSuccess(credentials.getId().substring(3));
+            finishWithSuccess(credentials.getId());
         } else if (requestCode == CREDENTIAL_PICKER_REQUEST && resultCode == CredentialsApi.ACTIVITY_RESULT_NO_HINTS_AVAILABLE) {
             Log.i(TAG, "User cancelled the picker request");
             finishWithError("np_numbers", "No Numbers found");
